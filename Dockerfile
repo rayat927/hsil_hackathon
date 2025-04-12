@@ -4,7 +4,6 @@ FROM python:3.9-slim
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
     tesseract-ocr-eng \  # English language pack
-    libgl1-mesa-glx \    # For OpenCV/Pillow if used
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
