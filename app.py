@@ -16,7 +16,7 @@ CORS(app)  # Enable CORS for all routes
 # Initialize ML model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
 # Enhanced ingredient database with eco-friendly alternatives
