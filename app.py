@@ -165,8 +165,8 @@ def analyze_image():
             
             results = []
             for i, score, idx in zip(ingredients, max_scores, max_indices):
-                if score >= 0.75:  # Confidence threshold
-                    harmful = harmful_data_df.iloc[idx]
+                if score >= 0.75 and harmful_data_df.iloc[idx]['Risk Level'] not in ['Low', 'Low–Moderate']:  # Confidence threshold
+                    harmful = harmful_data_df.iloc[idx] 
                     results.append({
                         "input_ingredient": i,
                         "matched_ingredient": harmful['Ingredient'],
@@ -180,11 +180,7 @@ def analyze_image():
                 "success": True,
                 "data": {
                     "analysis": results,
-                    "summary": {
-                        "total_ingredients": len(ingredients),
-                        "high_risk": len([r for r in results if r['risk_level'] == "High"]),
-                        "moderate_risk": len([r for r in results if r['risk_level'] == "Moderate"])
-                    },
+                
                     "timestamp": datetime.now().isoformat()
                 }
             })
